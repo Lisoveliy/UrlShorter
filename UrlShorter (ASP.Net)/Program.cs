@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using UrlShorter.Database;
+
 namespace UrlShorter
 {
     public class Program
@@ -5,7 +8,7 @@ namespace UrlShorter
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Services.AddDbContext<ApplicationContext>(x => x.UseMySQL(builder.Configuration.GetConnectionString("mysql")!));
             builder.Services.AddControllers();
             builder.Services.AddOpenApiDocument(options => options.PostProcess = doc => {
                 doc.Info = new NSwag.OpenApiInfo { Title = "UrlShorter Routes Documentation" };
