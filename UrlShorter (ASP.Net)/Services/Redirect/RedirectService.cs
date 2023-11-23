@@ -5,8 +5,8 @@ namespace UrlShorter.Services.Redirect
 {
     public class RedirectService : IRedirectService
     {
-        private readonly DatabaseService databaseService;
-        public RedirectService(DatabaseService databaseService) => this.databaseService = databaseService;
+        private readonly RepositoryService databaseService;
+        public RedirectService(RepositoryService databaseService) => this.databaseService = databaseService;
 
         public async Task<string?> GetRedirectURL(string hash)
         {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Text.RegularExpressions;
 using UrlShorter.Database;
 using UrlShorter.Mappers;
@@ -8,15 +9,20 @@ namespace UrlShorter.Services.Link
 {
     public class LinkService : ILinkService
     {
-        private readonly DatabaseService context;
+        private readonly RepositoryService context;
         private readonly ILinkGeneratorService generatorService;
-        public LinkService(DatabaseService context, ILinkGeneratorService linkGenerator)
+        public LinkService(RepositoryService context, ILinkGeneratorService linkGenerator)
         {
             this.context = context;
             this.generatorService = linkGenerator;
         }
-        public async Task<LinkModels.Link> CreateLink(string realUrl)
+        public async Task<LinkModels.Link?> CreateLink(string realUrl)
         {
+            var existingRoute = await context.Links.FirstOrDefaultAsync(x => realUrl == x.DestinationUrl);
+            if (existingRoute != null)
+            {
+                return null;
+            }
             var obj = await context.Links.AddAsync(new()
             {
                 DestinationUrl = realUrl,

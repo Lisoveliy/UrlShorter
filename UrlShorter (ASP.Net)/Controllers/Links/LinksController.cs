@@ -33,9 +33,13 @@ namespace UrlShorter.Controllers.Links
         /// <param name="addUrlDTO">Link for reduction</param>
         /// <returns>Link object</returns>
         [HttpPost("add")]
-        public async Task<LinkDTOResponse> AddLink(AddUrlDTORequest addUrlDTO)
+        public async Task<ActionResult<LinkDTOResponse>> AddLink(AddUrlDTORequest addUrlDTO)
         {
             var link = await linkService.CreateLink(addUrlDTO.realUrl);
+            if(link == null)
+            {
+                return BadRequest();
+            }
             return link.Map<LinkDTOResponse>();
         }
         /// <summary>
