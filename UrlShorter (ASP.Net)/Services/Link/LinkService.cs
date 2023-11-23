@@ -1,18 +1,26 @@
-﻿using UrlShorter.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
+using UrlShorter.Database;
 using UrlShorter.Mappers;
+using UrlShorter.Services.LinkGenerator;
 
 namespace UrlShorter.Services.Link
 {
     public class LinkService : ILinkService
     {
         private readonly DatabaseService context;
-        public LinkService(DatabaseService context) => this.context = context;
+        private readonly ILinkGeneratorService generatorService;
+        public LinkService(DatabaseService context, ILinkGeneratorService linkGenerator)
+        {
+            this.context = context;
+            this.generatorService = linkGenerator;
+        }
         public async Task<LinkModels.Link> CreateLink(string realUrl)
         {
             var obj = await context.Links.AddAsync(new()
             {
                 DestinationUrl = realUrl,
-                ShortUrl = GetLinkHash()
+                ShortUrl = await generatorService.GetUniquePath()
             });
             await context.SaveChangesAsync();
             return obj.Entity.Map<LinkModels.Link>();
@@ -57,11 +65,6 @@ namespace UrlShorter.Services.Link
                 return true;
             }
             return false;
-        }
-
-        private string GetLinkHash()
-        {
-            return Guid.NewGuid().ToString();
         }
     }
 }

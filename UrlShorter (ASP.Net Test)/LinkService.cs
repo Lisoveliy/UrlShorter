@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UrlShorter.Database;
 using UrlShorter.Services.Link.LinkModels;
+using UrlShorter.Services.LinkGenerator;
 
 namespace UrlShorter.Tests
 {
@@ -18,7 +19,8 @@ namespace UrlShorter.Tests
         public async Task AddLink()
         {
             resetDB();
-            var service = new Services.Link.LinkService(database);
+            ILinkGeneratorService linkGenerator = new LinkGeneratorService(database);
+            var service = new Services.Link.LinkService(database, linkGenerator);
             var link = await service.CreateLink("https://google.com");
             var returned = await service.GetLinkById(link.Id);
             Assert.AreEqual<Link?>(link, returned);
@@ -27,7 +29,8 @@ namespace UrlShorter.Tests
         public async Task NotExistingLink()
         {
             resetDB();
-            var service = new Services.Link.LinkService(database);;
+            ILinkGeneratorService linkGenerator = new LinkGeneratorService(database);
+            var service = new Services.Link.LinkService(database, linkGenerator);
             var returned = await service.GetLinkById(1);
             Assert.AreEqual(returned, null);
         }
@@ -35,7 +38,8 @@ namespace UrlShorter.Tests
         public async Task RemoveLink()
         {
             resetDB();
-            var service = new Services.Link.LinkService(database);
+            ILinkGeneratorService linkGenerator = new LinkGeneratorService(database);
+            var service = new Services.Link.LinkService(database, linkGenerator);
             var link = await service.CreateLink("https://google.com");
             await service.RemoveLinkById(link.Id);
             var returned = await service.GetLinkById(link.Id);
@@ -45,7 +49,8 @@ namespace UrlShorter.Tests
         public async Task ModifiedLink()
         {
             resetDB();
-            var service = new Services.Link.LinkService(database);
+            ILinkGeneratorService linkGenerator = new LinkGeneratorService(database);
+            var service = new Services.Link.LinkService(database, linkGenerator);
             var link = await service.CreateLink("https://google.com");
             await service.ModifyLink(link.Id, "https://vk.com");
             var returned = await service.GetLinkById(link.Id);
