@@ -1,12 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using UrlShorter.Database;
+﻿using UrlShorter.Database;
+using UrlShorter.Services.Link.LinkModels;
 
 namespace UrlShorter.Services.Link
 {
     public class LinkService : ILinkService
     {
-        private readonly ApplicationContext context;
-        public LinkService(ApplicationContext context) => this.context = context;
+        private readonly DatabaseService context;
+        public LinkService(DatabaseService context) => this.context = context;
         public async Task<LinkModels.Link> CreateLink(string realUrl)
         {
             var obj = await context.Links.AddAsync(new()
@@ -14,6 +14,7 @@ namespace UrlShorter.Services.Link
                 DestinationUrl = realUrl,
                 ShortUrl = GetLinkHash()
             });
+            await context.SaveChangesAsync();
             return obj.Entity.Map<LinkModels.Link>();
         }
 
@@ -40,8 +41,9 @@ namespace UrlShorter.Services.Link
             }
             link.DestinationUrl = realUrl;
             link.TransitionCount = resetCounter ? 0 : link.TransitionCount;
-            return context.Links.Update(link) //Return updated link
-                .Entity.Map<LinkModels.Link>();
+            var entity = context.Links.Update(link); //Return updated link
+            await context.SaveChangesAsync();
+            return entity.Entity.Map<LinkModels.Link>();
 
         }
 
@@ -51,6 +53,7 @@ namespace UrlShorter.Services.Link
             if (delentity != null)
             {
                 context.Links.Remove(delentity);
+                await context.SaveChangesAsync();
                 return true;
             }
             return false;
