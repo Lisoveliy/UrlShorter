@@ -1,8 +1,7 @@
-﻿namespace UrlShorter.Services.Link
+﻿namespace UrlShorter.Services.Redirect
 {
     public interface IRedirectService
     {
-
         public Task<string> GetRedirectURL(string hash);
     }
 }

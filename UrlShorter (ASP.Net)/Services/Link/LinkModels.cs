@@ -1,4 +1,4 @@
-﻿namespace UrlShorter.Services.Link.LinkModels;
+﻿namespace UrlShorter.Services.Link.LinkModels { 
 
 public record Link(
     int Id,
@@ -6,12 +6,16 @@ public record Link(
     string GeneratedUrl,
     DateTime CreationDate,
     int countOfTransitions);
-public static class LinkMapper
+}
+namespace UrlShorter.Mappers
 {
-    public static Link Map<T>(this Database.Entities.Link link)
+    static partial class LinkMapper
     {
-        if (typeof(T).IsAssignableFrom(typeof(Services.Link.LinkModels.Link)))
-            return new(link.Id, link.DestinationUrl, link.ShortUrl, link.CreatedTime, link.TransitionCount);
-        throw new InvalidCastException();
+        public static Services.Link.LinkModels.Link Map<T>(this Database.Entities.Link link)
+        {
+            if (typeof(T).IsAssignableFrom(typeof(Services.Link.LinkModels.Link)))
+                return new(link.Id, link.DestinationUrl, link.ShortUrl, link.CreatedTime, link.TransitionCount);
+            throw new InvalidCastException();
+        }
     }
 }

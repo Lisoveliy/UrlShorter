@@ -10,11 +10,15 @@ namespace UrlShorter
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<DatabaseService>(x => x.UseMySQL(builder.Configuration.GetConnectionString("mysql")!));
+            
             builder.Services.AddControllers();
+            
             builder.Services.AddScoped<ILinkService, LinkService>();
+
             builder.Services.AddOpenApiDocument(options => options.PostProcess = doc => {
                 doc.Info = new NSwag.OpenApiInfo { Title = "UrlShorter Routes Documentation" };
-            });//Title for OpenAPI
+            });
+            //Title for OpenAPI
 
             var app = builder.Build();
             

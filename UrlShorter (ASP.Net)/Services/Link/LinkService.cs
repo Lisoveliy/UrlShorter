@@ -1,5 +1,5 @@
 ﻿using UrlShorter.Database;
-using UrlShorter.Services.Link.LinkModels;
+using UrlShorter.Mappers;
 
 namespace UrlShorter.Services.Link
 {

@@ -3,6 +3,7 @@ using NSwag.Annotations;
 using System.ComponentModel.DataAnnotations;
 using UrlShorter.Controllers.LinksDTO;
 using UrlShorter.Services.Link;
+using UrlShorter.Mappers;
 
 namespace UrlShorter.Controllers
 {

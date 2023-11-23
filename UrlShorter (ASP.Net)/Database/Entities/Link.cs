@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace UrlShorter.Database.Entities
+﻿namespace UrlShorter.Database.Entities
 {
     public class Link
     {
