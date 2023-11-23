@@ -3,9 +3,9 @@ using UrlShorter.Database.Entities;
 
 namespace UrlShorter.Database
 {
-    public class DatabaseService : DbContext
+    public class RepositoryService : DbContext
     {
-        public DatabaseService(DbContextOptions<DatabaseService> options) : base(options) {
+        public RepositoryService(DbContextOptions<RepositoryService> options) : base(options) {
             Database.EnsureCreated();
         }
         public DbSet<Link> Links { get; set; }

@@ -6,8 +6,8 @@
         /// Create Short link by Destination URL
         /// </summary>
         /// <param name="realUrl">Link to redirect from short link</param>
-        /// <returns>Link Service Object</returns>
-        public Task<LinkModels.Link> CreateLink(string realUrl);
+        /// <returns>Link Service Object or null on exists</returns>
+        public Task<LinkModels.Link?> CreateLink(string realUrl);
         /// <summary>
         /// Get All Short links
         /// </summary>
