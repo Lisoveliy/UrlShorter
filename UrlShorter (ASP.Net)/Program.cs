@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using UrlShorter.Database;
+using UrlShorter.Services.Link;
+using UrlShorter.Services.Redirect;
+
 namespace UrlShorter
 {
     public class Program
@@ -5,11 +10,17 @@ namespace UrlShorter
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Services.AddDbContext<DatabaseService>(x => x.UseMySQL(builder.Configuration.GetConnectionString("mysql")!));
+            
             builder.Services.AddControllers();
+            
+            builder.Services.AddScoped<ILinkService, LinkService>();
+            builder.Services.AddScoped<IRedirectService, RedirectService>();
+
             builder.Services.AddOpenApiDocument(options => options.PostProcess = doc => {
                 doc.Info = new NSwag.OpenApiInfo { Title = "UrlShorter Routes Documentation" };
-            });//Title for OpenAPI
+            });
+            //Title for OpenAPI
 
             var app = builder.Build();
             
