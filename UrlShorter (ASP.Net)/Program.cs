@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UrlShorter.Database;
 using UrlShorter.Services.Link;
+using UrlShorter.Services.Redirect;
 
 namespace UrlShorter
 {
@@ -14,6 +15,7 @@ namespace UrlShorter
             builder.Services.AddControllers();
             
             builder.Services.AddScoped<ILinkService, LinkService>();
+            builder.Services.AddScoped<IRedirectService, RedirectService>();
 
             builder.Services.AddOpenApiDocument(options => options.PostProcess = doc => {
                 doc.Info = new NSwag.OpenApiInfo { Title = "UrlShorter Routes Documentation" };

@@ -2,6 +2,6 @@
 {
     public interface IRedirectService
     {
-        public Task<string> GetRedirectURL(string hash);
+        public Task<string?> GetRedirectURL(string hash);
     }
 }
