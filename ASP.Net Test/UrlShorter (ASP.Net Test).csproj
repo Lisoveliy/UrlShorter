@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UrlShorter (ASP.Net)\UrlShorter (ASP.Net).csproj" />
+    <ProjectReference Include="..\ASP.Net\UrlShorter (ASP.Net).csproj" />
   </ItemGroup>
 
 </Project>
