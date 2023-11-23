@@ -12,7 +12,7 @@
         /// Get All Short links
         /// </summary>
         /// <returns>Link Service Objects</returns>
-        public Task<LinkModels.Link[]> GetAllLinks();
+        public LinkModels.Link[] GetLinks(int offset, int count);
         /// <summary>
         /// Modify link by ID (Change URL, Reset Counter)
         /// </summary>
@@ -32,6 +32,6 @@
         /// </summary>
         /// <param name="id">ID of link</param>
         /// <returns>Status of execution</returns>
-        public bool RemoveLinkById(int id);
+        public Task<bool> RemoveLinkById(int id);
     }
 }

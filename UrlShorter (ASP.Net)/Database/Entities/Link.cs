@@ -9,9 +9,11 @@ namespace UrlShorter.Database.Entities
         public string ShortUrl { get; set; } = null!;
         public DateTime CreatedTime { get; set; } = DateTime.Now;
         public int TransitionCount { get; set; }
-        public Services.Link.LinkModels.Link MapToServiceModel()
+        public Services.Link.LinkModels.Link Map<T>()
         {
-            return new(Id, DestinationUrl, ShortUrl, CreatedTime, TransitionCount);
+            if(typeof(T).IsAssignableFrom(typeof(Services.Link.LinkModels.Link)))
+                return new(Id, DestinationUrl, ShortUrl, CreatedTime, TransitionCount);
+            throw new InvalidCastException();
         }
     }
 }
