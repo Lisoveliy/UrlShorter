@@ -1,11 +1,19 @@
 @import "bootstrap/scss/bootstrap";
 
+body{
+    margin: 0;
+    max-width: 100dvw;
+}
 h1 {
     text-align: center;
 }
 .flex {
     display: flex;
     justify-content: space-between;
+    max-width: 180px;
+}
+a, p{
+    font-size: 0.9em;
 }
 p{
     margin-bottom: 0;
