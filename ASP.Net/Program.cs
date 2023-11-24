@@ -12,7 +12,18 @@ namespace UrlShorter
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<RepositoryService>(x => x.UseMySQL(builder.Configuration.GetConnectionString("mysql")!));
-            
+            builder.Services.AddCors(options =>
+            {
+                if(builder.Environment.IsDevelopment())
+                {
+                    options.AddPolicy(name: "default", policy =>
+                    {
+                        policy.AllowAnyHeader();
+                        policy.AllowAnyMethod();
+                        policy.AllowAnyHeader();
+                    });
+                }
+            });
             builder.Services.AddControllers();
             
             builder.Services.AddScoped<ILinkService, LinkService>();
@@ -29,6 +40,7 @@ namespace UrlShorter
             app.MapControllers();
             if (app.Environment.IsDevelopment())
             {
+                app.UseCors("default");
                 app.UseOpenApi();
                 app.UseSwaggerUi3(c =>
                 {
