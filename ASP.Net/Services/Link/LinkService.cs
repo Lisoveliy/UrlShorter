@@ -36,7 +36,9 @@ namespace UrlShorter.Services.Link
         {
             //Get with pagination sorted by id
             return context.Links
-                .Skip(offset)
+               //.Skip(offset)
+                .OrderBy(x => x.Id)
+                .Where(x => x.Id > offset)
                 .Take(count)
                 .Select(x => x.Map<LinkModels.Link>()).ToArray();
         }
