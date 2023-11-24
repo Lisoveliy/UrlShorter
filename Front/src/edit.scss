@@ -1,0 +1,19 @@
+#editlinkform{
+    max-width: 50dvw;
+}
+@media screen and (max-width: 720px) {
+    #editlinkform{
+        min-width: 90dvw;
+        max-width: 90dvw;
+    }
+}
+.inline{
+    display: flex;
+}
+.textinline{
+    margin-left: 0.2dvw;
+}
+.flexbuttons{
+    display: flex;
+    justify-content: space-between;
+}
