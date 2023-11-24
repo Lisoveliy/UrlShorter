@@ -24,14 +24,13 @@ else {
         dangerAlert("Невозможно получить данные с сервера, проверьте подключение")
     }
 }
-document.addEventListener('keypress', (e)=> {
-    if(e.key == "Enter"){
-        console.log(e)
-    }
-    if (recivedLink.id !== undefined) {
-        recivedLink.realUrl = shorturl.value
-        recivedLink.countOfTransitions = resetcounter.checked == true ? 0 : recivedLink.countOfTransitions
-        new ModifyData(null, recivedLink)
+document.addEventListener('keypress', (e) => {
+    if (e.key == "Enter") {
+        if (recivedLink.id !== undefined) {
+            recivedLink.realUrl = shorturl.value
+            recivedLink.countOfTransitions = resetcounter.checked == true ? 0 : recivedLink.countOfTransitions
+            new ModifyData(null, recivedLink)
+        }
     }
 })
 document.getElementById('modifyform').addEventListener('submit', (e) => {

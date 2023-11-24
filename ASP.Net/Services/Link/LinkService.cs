@@ -54,7 +54,7 @@ namespace UrlShorter.Services.Link
                 return (null, false);
             }
             var existingRoute = await context.Links.FirstOrDefaultAsync(x => realUrl == x.DestinationUrl);
-            if (existingRoute != null)
+            if (existingRoute != null && resetCounter == false)
             {
                 return (null, true);
             }
