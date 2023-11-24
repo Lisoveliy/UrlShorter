@@ -29,3 +29,6 @@
 Или
 
     "UrlShorter (ASP.Net).exe" // Для Windows
+
+## Тестирование
+Откройте проект ASP.NET Test в Visual Studio и запустите тесты через Ctrl + R && Ctrl + A
