@@ -3,5 +3,5 @@
 //}
 
 export class Configuration{
-    static BackEndpoint = "http://url.lisoveliy.site"
+    static BackEndpoint = "https://url.lisoveliy.site"
 }
