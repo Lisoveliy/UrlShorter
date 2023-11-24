@@ -1,4 +1,4 @@
-export class Link {
+export type Link = {
     countOfTransitions: number
     creationDate: string
     id: number

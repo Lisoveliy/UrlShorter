@@ -1,5 +1,6 @@
 import { Alert } from "bootstrap";
 
+//Init error alert
 export function dangerAlert(text?: string, dispose = false, time = 1500) {
     var alertdiv = document.getElementById('alert_fetchfailed');
     alertdiv.style.display = "inline";
@@ -13,6 +14,7 @@ export function dangerAlert(text?: string, dispose = false, time = 1500) {
         }, time);
     }
 }
+//Init notification alert
 export function goodAlert(text?: string, time = 1500) {
     var alertdiv = document.getElementById('alertgood');
     alertdiv.style.display = "inline";
