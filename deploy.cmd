@@ -9,5 +9,5 @@ call yarn
 call yarn build
 cd ../ASP.Net
 dotnet publish
+cd ./bin/Release/net8.0/publish/
 echo Развёртывание завершено!
-
