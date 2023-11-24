@@ -11,7 +11,7 @@ namespace UrlShorter.Tests
     public class LinkServ
     {
         const string connectionstring = "Server=localhost; Database=urlshortertest; Uid=aspnet; Password=Qwerty123"; //Change it for your DB
-        RepositoryService database = new RepositoryService(new DbContextOptionsBuilder<RepositoryService>().UseMySQL(connectionstring).Options);
+        RepositoryService database = new RepositoryService(new DbContextOptionsBuilder<RepositoryService>().UseMySql(connectionstring, ServerVersion.AutoDetect(connectionstring)).Options);
         public void resetDB()
         {
             database.Database.EnsureDeleted();
