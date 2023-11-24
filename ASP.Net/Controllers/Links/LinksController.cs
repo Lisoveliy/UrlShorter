@@ -67,11 +67,15 @@ namespace UrlShorter.Controllers.Links
         public async Task<ActionResult<LinkDTOResponse>> UpdateLink(ModifyUrlDTORequest modifyUrlDTO)
         {
             var res = await linkService.ModifyLink(modifyUrlDTO.id, modifyUrlDTO.newlink, modifyUrlDTO.resetcounter);
-            if (res == null)
+            if (res == (null, false))
             {
                 return NotFound();
             }
-            return res.Map<LinkDTOResponse>();
+            if (res == (null, true))
+            {
+                return BadRequest();
+            }
+            return res.Item1!.Map<LinkDTOResponse>();
         }
 
         /// <summary>

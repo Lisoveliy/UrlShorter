@@ -19,8 +19,8 @@
         /// <param name="id">ID of modifying link</param>
         /// <param name="realUrl">Real URL</param>
         /// <param name="resetCounter">Parameter reseting counter</param>
-        /// <returns>Link Service Object or null on error</returns>
-        public Task<LinkModels.Link?> ModifyLink(int id, string realUrl, bool resetCounter = false);
+        /// <returns>(Link Service Object or null on error, boolean false = not found, true = confilct)</returns>
+        public Task<(LinkModels.Link?, bool)> ModifyLink(int id, string realUrl, bool resetCounter = false);
         /// <summary>
         /// Get Link by ID
         /// </summary>

@@ -46,18 +46,23 @@ namespace UrlShorter.Services.Link
             return (await context.Links.FindAsync(id))?.Map<LinkModels.Link>();
         }
 
-        public async Task<LinkModels.Link?> ModifyLink(int id, string realUrl, bool resetCounter = false)
+        public async Task<(LinkModels.Link?, bool)> ModifyLink(int id, string realUrl, bool resetCounter = false)
         {
             var link = await context.Links.FindAsync(id);
             if(link == null)
             {   //link not found
-                return null;
+                return (null, false);
+            }
+            var existingRoute = await context.Links.FirstOrDefaultAsync(x => realUrl == x.DestinationUrl);
+            if (existingRoute != null)
+            {
+                return (null, true);
             }
             link.DestinationUrl = realUrl;
             link.TransitionCount = resetCounter ? 0 : link.TransitionCount;
             var entity = context.Links.Update(link); //Return updated link
             await context.SaveChangesAsync();
-            return entity.Entity.Map<LinkModels.Link>();
+            return (entity.Entity.Map<LinkModels.Link>(), false);
 
         }
 

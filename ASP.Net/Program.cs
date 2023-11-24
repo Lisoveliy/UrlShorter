@@ -37,7 +37,6 @@ namespace UrlShorter
 
             var app = builder.Build();
 
-            app.UseFileServer();
             if (app.Environment.IsDevelopment())
             {
                 app.UseCors("default");
@@ -47,6 +46,7 @@ namespace UrlShorter
                 
                 });
             }
+            else app.UseFileServer();
             app.MapControllers();
             app.Run();
         }
