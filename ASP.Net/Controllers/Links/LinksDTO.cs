@@ -35,8 +35,9 @@ namespace UrlShorter.Controllers.Links
     /// <param name="id">ID of modifying object</param>
     /// <param name="newlink">New link to reduction</param>
     /// <param name="resetcounter">Need to reset counter?</param>
-    public record ModifyUrlDTORequest(int id, 
-        [RegularExpression(ValidationConsts.RegexLinkValidation)] 
+    public record ModifyUrlDTORequest(int id,
+        [MinLength(1)]
+        [RegularExpression(ValidationConsts.RegexLinkValidation)]
         string newlink, 
         bool resetcounter = false);
 }

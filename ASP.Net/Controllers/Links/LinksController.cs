@@ -32,7 +32,7 @@ namespace UrlShorter.Controllers.Links
         /// </summary>
         /// <param name="id">ID of link</param>
         /// <returns>Link object</returns>
-        [HttpGet("get/:id")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<LinkDTOResponse?>> GetLink(int id)
         {
             var link = await linkService.GetLinkById(id);

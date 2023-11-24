@@ -14,6 +14,19 @@ p{
     height: fit-content;
     margin-top: auto;
 }
+.alert_good{
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 70dvw;
+    height: fit-content;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
 #alert_fetchfailed{
     display: none;
     position: absolute;

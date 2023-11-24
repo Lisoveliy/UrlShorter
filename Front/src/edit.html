@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vite + TS</title>
 </head>
 
@@ -14,7 +14,7 @@
             <h1>UrlShorter - сделай ссылки поменьше</h1>
         </div>
         <div class="container" id="editlinkform">
-            <form>
+            <form id="modifyform">
                 <p class="display-6 text-center">Редактирование ссылки</p>
                 <div class="mb-3">
                     <label for="shortUrlInput" class="form-label">Сокращаемая ссылка</label>
@@ -31,14 +31,13 @@
                     <input type="checkbox" class="form-check-input" id="resetCounter">
                     <label class="form-check-label" for="resetCounter" aria-describedby="resetCounterHelp">Сбросить
                         количество переходов?</label>
-                    <div id="resetCounterHelp" class="form-text inline">Сейчас их:<div id="times" class="textinline">0</div>
+                    <div id="resetCounterHelp" class="form-text inline">Сейчас их:<div id="times" class="textinline">0
+                        </div>
                     </div>
                 </div>
                 <div class="flexbuttons">
-                    <button type="submit" class="btn btn-primary">Подтвердить</button>
-                    <div class="inline">
-                        <button type="submit" class="btn btn-danger">Удалить ссылку</button>
-                    </div>
+                    <button type="submit" id="submitbutton" class="btn btn-primary">Подтвердить</button>
+                    <button type="submit" id="removebutton" class="btn btn-danger">Удалить ссылку</button>
                 </div>
             </form>
         </div>
