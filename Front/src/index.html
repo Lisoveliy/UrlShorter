@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UrlShorter - ссылки</title>
 </head>
 
 <body>
     <div>
-        <div class="text-center m-5">
-            <h1>UrlShorter - сделай ссылки поменьше</h1>
+        <header class="m-1">
+            <h1 class="text-center">UrlShorter - сделай ссылки поменьше</h1>
+            <a id="submitbutton" class="btn btn-primary m-xl-4" href="create">Создать новую ссылку</a>
+        </header>
+        <div class="alert alert-success alert_good fade show" role="alert" id="alertgood">
         </div>
-        <div id="table" class="container">
+        <div class="container-fluid">
             <table class="table" id="table_inner">
                 <thead>
                     <th scope="row">
@@ -32,10 +35,10 @@
             </table>
         </div>
             <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
-                Невозможно получить данные с сервера, проверьте подключение
             </div>
+            
     </div>
-    <script type="module" src="scripts/main.ts" async></script>
+    <script type="module" src="scripts/indexpage.ts" async></script>
 </body>
 
 </html>

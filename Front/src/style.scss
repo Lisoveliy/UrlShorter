@@ -1,11 +1,23 @@
 @import "bootstrap/scss/bootstrap";
 
+body{
+    margin: 0;
+    width: 100dvw;
+    height: 100dvh;
+}
 h1 {
     text-align: center;
 }
-.flex {
+.tableflex {
+    @extend .flex;
+    max-width: 180px;
+}
+.flex{
     display: flex;
     justify-content: space-between;
+}
+a, p{
+    font-size: 0.9em;
 }
 p{
     margin-bottom: 0;
@@ -13,6 +25,19 @@ p{
 .flex > p{
     height: fit-content;
     margin-top: auto;
+}
+.alert_good{
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 70dvw;
+    height: fit-content;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
 }
 #alert_fetchfailed{
     display: none;
