@@ -1,22 +1,27 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Создай ссылку длинной всего лишь в 37⃰ строк! (* зависит от домена)">
     <title>UrlShorter - ссылки</title>
 </head>
 
 <body>
     <div>
         <header class="m-1">
-            <h1 class="text-center">UrlShorter - сделай ссылки поменьше</h1>
-            <a id="submitbutton" class="btn btn-primary m-xl-4" href="create.html">Создать новую ссылку</a>
+            <h1 class="head-text">UrlShorter - сделай ссылки поменьше</h1>
+            <p class="head-discription">Создай ссылку длинной всего лишь в 37 ⃰ строк! Просто нажми на кнопку внизу. Укоротит все ссылки длиннее 37 ⃰ строк! 
+                <br/>(* зависит от домена)</p>
+            <div class="flex flex-x-center">
+                <a id="create-button" class="btn btn-primary m-xl-4" href="create.html">Создать новую ссылку</a>
+            </div>
         </header>
-        <div class="alert alert-success alert_good fade show" role="alert" id="alertgood">
+        <div class="alert alert-success fade show" role="alert" id="alertgood">
         </div>
-        <div class="container-fluid">
+        <p class="display-6 head-text">Созданные ссылки:</p>
+        <div class="container">
             <table class="table" id="table_inner">
                 <thead>
                     <th scope="row">
@@ -34,9 +39,8 @@
                 </thead>
             </table>
         </div>
-            <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
-            </div>
-            
+        <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
+        </div>
     </div>
     <script type="module" src="scripts/indexpage.ts" async></script>
 </body>

@@ -1,4 +1,7 @@
 import '../style.scss'
+import '../table.scss'
+import '../index.scss'
+
 import { TableElement } from './Components/TableElement'
 import { Link } from './DTO/Link'
 import { Routes } from './routes'
@@ -28,7 +31,6 @@ try {
   RenderTable(links)
 }
 catch (_) {
-  console.log(import.meta.env)
   dangerAlert("Невозможно получить данные с сервера, проверьте подключение")
 }
 async function getLinks(): Promise<Link[]> {
