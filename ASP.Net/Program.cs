@@ -18,7 +18,7 @@ namespace UrlShorter
                 {
                     options.AddPolicy(name: "default", policy =>
                     {
-                        policy.AllowAnyHeader();
+                        policy.AllowAnyOrigin();
                         policy.AllowAnyMethod();
                         policy.AllowAnyHeader();
                     });
