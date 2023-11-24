@@ -6,7 +6,14 @@ namespace UrlShorter.Database
     public class RepositoryService : DbContext
     {
         public RepositoryService(DbContextOptions<RepositoryService> options) : base(options) {
-            Database.EnsureCreated();
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Skipping ensure...");
+            }
         }
         public DbSet<Link> Links { get; set; }
     }
