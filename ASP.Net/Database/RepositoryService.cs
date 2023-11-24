@@ -7,7 +7,7 @@ namespace UrlShorter.Database
     {
         public RepositoryService(DbContextOptions<RepositoryService> options) : base(options)
         {
-            Console.WriteLine("Skipping ensure...");
+            Database.EnsureCreated();
         }
         public DbSet<Link> Links { get; set; }
     }
