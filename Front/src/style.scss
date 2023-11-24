@@ -1,1 +1,21 @@
 @import "bootstrap/scss/bootstrap";
+
+#maingrid{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-areas: 
+    "H H H"
+    ". T ."
+    ". . ."
+    ;
+    grid-gap: 2vw;
+}
+#header1{
+    grid-area: H;
+}
+#table{
+    grid-area: T;
+}
+p{
+    margin: 0;
+}
