@@ -1,6 +1,6 @@
 echo Запуск развёртывания...
 cd ASP.Net
-del -r wwwroot
+del /F /s /q wwwroot
 mkdir wwwroot
 cd ../Front
 yarn
