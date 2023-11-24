@@ -14,7 +14,7 @@ export class TableElement implements IElement{
     timeofcreationEl.append(this.generateElement('p', timeofcreation))
     let button = document.createElement('a')
     button.className = "btn btn-primary"
-    button.href = "edit?id=" + String(id)
+    button.href = "edit.html?id=" + String(id)
     button.role = "button"
     button.textContent = "Изменить"
     let counterdiv = this.generateElement('div', '<p>' + String(counter) +'</p>')

@@ -16,7 +16,7 @@ switch(sessionStorage.getItem("operation")){
     break;
   case "created":
     let message = "Ссылка создана: " + 
-    Configuration.BackEndpoint.concat('/', 
+    Configuration.BackEndpoint.concat(Routes.shortLinks, 
     (<Link>JSON.parse(sessionStorage.getItem("object"))).shortUrl)
     goodAlert(message, 4000)
       sessionStorage.removeItem("object")
@@ -58,6 +58,6 @@ async function requestLinks(offset: number, count: number): Promise<Link[]> {
 
 function RenderTable(links: Link[]) {
   links.forEach(element => {
-    new TableElement(element.id, element.realUrl, Configuration.BackEndpoint.concat("/", element.shortUrl), element.creationDate, element.countOfTransitions, table)
+    new TableElement(element.id, element.realUrl, Configuration.BackEndpoint.concat(Routes.shortLinks, element.shortUrl), element.creationDate, element.countOfTransitions, table)
   })
 }

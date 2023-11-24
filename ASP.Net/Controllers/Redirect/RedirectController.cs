@@ -8,7 +8,7 @@ namespace UrlShorter.Controllers.Redirect
     {
         private readonly IRedirectService redirectService;
         public RedirectController(IRedirectService redirectService) => this.redirectService = redirectService;
-        [HttpGet("{linkhash}")]
+        [HttpGet("s/{linkhash}")]
         public async Task<ActionResult> RedirectUsingHash(string linkhash)
         {
             var url = await redirectService.GetRedirectURL(linkhash);

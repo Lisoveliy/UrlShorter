@@ -4,4 +4,5 @@ export class Routes {
     static updateLink = "/Links/update"
     static removeLink = "/Links/remove?"
     static createLink = "/Links/add"
+    static shortLinks = "/s/"
 }

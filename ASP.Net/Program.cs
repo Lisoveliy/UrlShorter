@@ -36,8 +36,8 @@ namespace UrlShorter
             //Title for OpenAPI
 
             var app = builder.Build();
-            
-            app.MapControllers();
+
+            app.UseFileServer();
             if (app.Environment.IsDevelopment())
             {
                 app.UseCors("default");
@@ -47,6 +47,7 @@ namespace UrlShorter
                 
                 });
             }
+            app.MapControllers();
             app.Run();
         }
     }
