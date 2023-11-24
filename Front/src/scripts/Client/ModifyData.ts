@@ -1,7 +1,10 @@
-import { Link } from "../DTO/Link";
+import { Link } from "../Models/Link";
 import { dangerAlert } from "../alerts";
 import { Routes } from "../routes";
 
+/*
+    Class for edit link on server
+*/
 export class ModifyData {
     constructor(e?: SubmitEvent, updatedlink?: Link) {
         if (e)

@@ -1,6 +1,8 @@
-import { IElement } from "./IElement"
+/*
+  Class for render table of link values
+*/
 
-export class TableElement implements IElement{
+export class TableRenderer{
   public constructor(id: number, public extUrl: string, public intUrl: string, public timeofcreation: string, public counter: number, table: HTMLTableElement){
     const mainel = table.insertRow();
 
@@ -14,9 +16,7 @@ export class TableElement implements IElement{
     timeofcreationEl.append(this.generateElement('p', timeofcreation))
     let button = this.getButton(id)
     counterEl.append(this.getCounter(counter, button))
-    this.mainElement = mainel
   }
-  mainElement: HTMLElement
 
   private getCounter(counter: number, button: HTMLAnchorElement){
     let counterdiv = this.generateElement('div', '<p>' + String(counter) +'</p>')

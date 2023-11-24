@@ -14,20 +14,25 @@
         <header class="m-1">
             <h1 class="head-text">UrlShorter - сделай ссылки поменьше</h1>
         </header>
-        <div class="container" id="editlinkform">
-            <form id="modifyform">
+        <div class="container" id="edit-link-form">
+            <!--Форма редактирования-->
+            <form id="modify-form">
+
                 <p class="display-6 text-center">Редактирование ссылки</p>
+
                 <div class="mb-3">
                     <label for="shortUrlInput" class="form-label">Сокращаемая ссылка</label>
                     <input type="url" class="form-control" id="shortUrlInput" aria-describedby="shortUrlHelp">
                     <div id="shortUrlHelp" class="form-text">Ссылка которую требуется сократить</div>
                 </div>
+
                 <div class="mb-3">
                     <label for="shortedUrlInput" class="form-label">Сокращённая ссылка</label>
                     <input type="url" class="form-control" id="shortedUrlInput" aria-describedby="shortedUrlHelp"
                         disabled>
                     <div id="shortedUrlHelp" class="form-text">Ссылка по которой будет происходить переход</div>
                 </div>
+
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="resetCounter">
                     <label class="form-check-label" for="resetCounter" aria-describedby="resetCounterHelp">Сбросить
@@ -36,7 +41,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flexbuttons">
+
+                <div class="flex-buttons">
                     <button type="submit" id="submitbutton" class="btn btn-primary">Подтвердить</button>
                     <button type="submit" id="removebutton" class="btn btn-danger">Удалить ссылку</button>
                 </div>
