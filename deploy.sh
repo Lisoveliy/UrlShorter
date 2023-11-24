@@ -1,12 +1,11 @@
-@echo off
-chcp 65001
+#!bin/bash
 echo Запуск развёртывания...
 cd ASP.Net
 rm -rf wwwroot
 mkdir wwwroot
 cd ../Front
-call yarn
-call yarn build
+yarn
+yarn build
 cd ../ASP.Net
 dotnet publish
 echo Развёртывание завершено!
