@@ -1,6 +1,6 @@
-import '../style.scss'
-import '../table.scss'
-import '../index.scss'
+import '../styles/style.scss'
+import '../styles/table.scss'
+import '../styles/index.scss'
 
 import { TableElement } from './Components/TableElement'
 import { Link } from './DTO/Link'

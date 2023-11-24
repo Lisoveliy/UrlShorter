@@ -1,5 +1,5 @@
-import '../style.scss'
-import '../edit.scss'
+import '../styles/style.scss'
+import '../styles/edit.scss'
 import { Routes } from './routes'
 import { Link } from './DTO/Link'
 import { dangerAlert } from './alerts'
