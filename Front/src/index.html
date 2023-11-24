@@ -4,31 +4,38 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>UrlShorter - ссылки</title>
 </head>
+
 <body>
-    <div id="maingrid">
-        <div id="header1" class="text-center m-5"><h1>UrlShorter - сделай ссылки поменьше</h1></div>
-        <div id="table" class="container border">
+    <div>
+        <div class="text-center m-5">
+            <h1>UrlShorter - сделай ссылки поменьше</h1>
+        </div>
+        <div id="table" class="container">
             <table class="table" id="table_inner">
                 <thead>
-               <th scope="row">
-                    Ссылка
-                </th>
-                <th scope="row">
-                    Сокращённая ссылка
-                </th>
-                <th scope="row">
-                   Дата создания 
-                </th>
-                <th scope="row">
-                    Количество переходов
-                </th>
-            </thead>
+                    <th scope="row">
+                        Ссылка
+                    </th>
+                    <th scope="row">
+                        Сокращённая ссылка
+                    </th>
+                    <th scope="row">
+                        Дата создания
+                    </th>
+                    <th scope="row">
+                        Количество переходов
+                    </th>
+                </thead>
             </table>
         </div>
+            <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
+                Невозможно получить данные с сервера, проверьте подключение
+            </div>
     </div>
-    <script type="module" src="main.ts" async></script>
+    <script type="module" src="scripts/main.ts" async></script>
 </body>
+
 </html>

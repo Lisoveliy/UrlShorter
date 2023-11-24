@@ -1,21 +1,29 @@
 @import "bootstrap/scss/bootstrap";
 
-#maingrid{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 0.5fr;
-    grid-template-areas: 
-    "H H H"
-    ". T ."
-    ". . ."
-    ;
-    grid-gap: 2vw;
+h1 {
+    text-align: center;
 }
-#header1{
-    grid-area: H;
-}
-#table{
-    grid-area: T;
+.flex {
+    display: flex;
+    justify-content: space-between;
 }
 p{
-    margin: 0;
+    margin-bottom: 0;
+}
+.flex > p{
+    height: fit-content;
+    margin-top: auto;
+}
+#alert_fetchfailed{
+    display: none;
+    position: absolute;
+    margin: auto;
+    width: 70dvw;
+    height: fit-content;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
 }
