@@ -11,7 +11,7 @@ namespace UrlShorter
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<RepositoryService>(x => x.UseMySQL(builder.Configuration.GetConnectionString("mysql")!));
+            builder.Services.AddDbContext<RepositoryService>(x => x.UseMySql(builder.Configuration.GetConnectionString("mysql")!, ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("mysql")!)));
             builder.Services.AddCors(options =>
             {
                 if(builder.Environment.IsDevelopment())
