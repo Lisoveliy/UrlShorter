@@ -27,7 +27,7 @@
     chmod 755 deploy.sh 
     ./deploy.sh
 ## Запуск
-После развёртывания готовый к запуску проект можно найти по пути <code>/ASP.Net/bin/Release/net8.0/publish/</code> и запустить командой
+После развёртывания готовый к запуску проект можно найти по пути <code>./ASP.Net/bin/Release/net8.0/publish/</code> и запустить командой
 
     ./UrlShorter\ \(ASP.Net\) // Для Linux
 Или
