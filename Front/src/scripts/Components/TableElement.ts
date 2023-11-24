@@ -18,7 +18,7 @@ export class TableElement implements IElement{
     button.role = "button"
     button.textContent = "Изменить"
     let counterdiv = this.generateElement('div', '<p>' + String(counter) +'</p>')
-    counterdiv.className = "flex"
+    counterdiv.className = "tableflex"
     counterdiv.append(button)
     counterEl.append(counterdiv)
 

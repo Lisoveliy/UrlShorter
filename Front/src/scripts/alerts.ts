@@ -1,6 +1,6 @@
 import { Alert } from "bootstrap";
 
-export function dangerAlert(text?: string, dispose = false) {
+export function dangerAlert(text?: string, dispose = false, time = 1500) {
     var alertdiv = document.getElementById('alert_fetchfailed');
     alertdiv.style.display = "inline";
     alertdiv.textContent = text ?? "Попробуйте ещё раз";
@@ -10,14 +10,14 @@ export function dangerAlert(text?: string, dispose = false) {
             setTimeout(() => {
             window.location.reload()
             },300);
-        }, 1000);
+        }, time);
     }
 }
-export function goodAlert(text?: string) {
+export function goodAlert(text?: string, time = 1500) {
     var alertdiv = document.getElementById('alertgood');
     alertdiv.style.display = "inline";
-    alertdiv.textContent = text ?? "Успешно!";
+    alertdiv.innerHTML = text ?? "Успешно!";
     setTimeout(() => {
         new Alert(alertdiv).close()
-    }, 1000);
+    }, time);
 }

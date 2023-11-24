@@ -3,4 +3,5 @@ export class Routes {
     static getLink = "/Links/get/"
     static updateLink = "/Links/update"
     static removeLink = "/Links/remove?"
+    static createLink = "/Links/add"
 }

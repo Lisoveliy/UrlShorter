@@ -14,6 +14,13 @@ switch(sessionStorage.getItem("operation")){
     goodAlert("Успешно удалено!")
     sessionStorage.removeItem("operation")
     break;
+  case "created":
+    let message = "Ссылка создана: " + 
+    Configuration.BackEndpoint.concat('/', 
+    (<Link>JSON.parse(sessionStorage.getItem("object"))).shortUrl)
+    goodAlert(message, 4000)
+      sessionStorage.removeItem("object")
+      sessionStorage.removeItem("operation")
 }
 
 const table = <HTMLTableElement>document.getElementById('table_inner')

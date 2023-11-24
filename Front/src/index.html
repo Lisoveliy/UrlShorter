@@ -10,11 +10,13 @@
 
 <body>
     <div>
-        <div class="text-center m-5">
-            <h1>UrlShorter - сделай ссылки поменьше</h1>
-        </div>
+        <header class="m-1">
+            <h1 class="text-center">UrlShorter - сделай ссылки поменьше</h1>
+            <a id="submitbutton" class="btn btn-primary m-xl-4" href="create">Создать новую ссылку</a>
+        </header>
         <div class="alert alert-success alert_good fade show" role="alert" id="alertgood">
         </div>
+        <div class="container-fluid">
             <table class="table" id="table_inner">
                 <thead>
                     <th scope="row">
@@ -31,8 +33,10 @@
                     </th>
                 </thead>
             </table>
+        </div>
             <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
             </div>
+            
     </div>
     <script type="module" src="scripts/indexpage.ts" async></script>
 </body>

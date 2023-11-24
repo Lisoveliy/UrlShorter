@@ -4,7 +4,8 @@ import { dangerAlert } from "../alerts";
 import { Routes } from "../routes";
 
 export class ModifyData {
-    constructor(e: SubmitEvent, updatedlink?: Link) {
+    constructor(e?: SubmitEvent, updatedlink?: Link) {
+        if(e)
         switch (e.submitter.id) {
             case "removebutton":
                 this.removeLink(updatedlink)
@@ -12,18 +13,20 @@ export class ModifyData {
             case "submitbutton":
                 this.modifyLink(updatedlink)
                 break;
+            default:
         }
+        else this.modifyLink(updatedlink)
     }
-    private async removeLink(updatedlink: Link){
+    private async removeLink(updatedlink: Link) {
         let response = await fetch(Configuration.BackEndpoint + Routes.removeLink + new URLSearchParams({
             id: String(updatedlink.id)
-        }),{
+        }), {
             method: "DELETE"
         })
-        if(response.ok){
+        if (response.ok) {
             document.location.href = "/"
             sessionStorage.setItem("operation", "removed")
-        }else{
+        } else {
             dangerAlert()
         }
     }
@@ -40,10 +43,10 @@ export class ModifyData {
                 resetcounter: updatedlink.countOfTransitions == 0
             })
         })
-        if(response.ok){
+        if (response.ok) {
             document.location.href = "/"
             sessionStorage.setItem("operation", "updated")
-        }else{
+        } else {
             dangerAlert(null, true)
         }
     }
