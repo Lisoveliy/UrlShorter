@@ -28,6 +28,19 @@ namespace UrlShorter.Controllers.Links
         }
 
         /// <summary>
+        /// Get link by id
+        /// </summary>
+        /// <param name="id">ID of link</param>
+        /// <returns>Link object</returns>
+        [HttpGet("get/:id")]
+        public async Task<ActionResult<LinkDTOResponse?>> GetLink(int id)
+        {
+            var link = await linkService.GetLinkById(id);
+            if(link == null)
+                return NotFound();
+            return link.Map<LinkDTOResponse>();
+        }
+        /// <summary>
         /// Add link to database
         /// </summary>
         /// <param name="addUrlDTO">Link for reduction</param>
@@ -42,6 +55,7 @@ namespace UrlShorter.Controllers.Links
             }
             return link.Map<LinkDTOResponse>();
         }
+
         /// <summary>
         /// Modify link on database
         /// </summary>
@@ -59,6 +73,7 @@ namespace UrlShorter.Controllers.Links
             }
             return res.Map<LinkDTOResponse>();
         }
+
         /// <summary>
         /// Remove link from database
         /// </summary>
