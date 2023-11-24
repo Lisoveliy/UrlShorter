@@ -26,9 +26,12 @@ else {
     }
 }
 document.getElementById('modifyform').addEventListener('submit', (e) => {
-    recivedLink.realUrl = shorturl.value
-    recivedLink.countOfTransitions = resetcounter.checked == true ? 0 : recivedLink.countOfTransitions 
-    new ModifyData(e, recivedLink)
+    e.preventDefault();
+    if (recivedLink.id !== undefined) {
+        recivedLink.realUrl = shorturl.value
+        recivedLink.countOfTransitions = resetcounter.checked == true ? 0 : recivedLink.countOfTransitions
+        new ModifyData(e, recivedLink)
+    }
 })
 
 function AddDataIntoForm(link: Link) {

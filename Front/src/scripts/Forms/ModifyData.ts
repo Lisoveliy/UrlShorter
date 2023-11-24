@@ -5,7 +5,6 @@ import { Routes } from "../routes";
 
 export class ModifyData {
     constructor(e: SubmitEvent, updatedlink?: Link) {
-        e.preventDefault();
         switch (e.submitter.id) {
             case "removebutton":
                 this.removeLink(updatedlink)
@@ -45,7 +44,7 @@ export class ModifyData {
             document.location.href = "/"
             sessionStorage.setItem("operation", "updated")
         }else{
-            dangerAlert()
+            dangerAlert(null, true)
         }
     }
 }
