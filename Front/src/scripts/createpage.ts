@@ -1,6 +1,5 @@
 import '../style.scss'
 import '../edit.scss'
-import { Configuration } from '../configuration';
 import { Routes } from './routes';
 import { dangerAlert } from './alerts';
 
@@ -17,7 +16,7 @@ document.getElementById('createform').addEventListener('submit',async (e) => {
 })
 async function createLink(){
     if (shorturl.value) {
-        var response = await fetch(Configuration.BackEndpoint + Routes.createLink, {
+        var response = await fetch(import.meta.env.VITE_BackEndpoint + Routes.createLink, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',

@@ -1,6 +1,5 @@
 import '../style.scss'
 import { TableElement } from './Components/TableElement'
-import { Configuration } from '../configuration'
 import { Link } from './DTO/Link'
 import { Routes } from './routes'
 import { dangerAlert, goodAlert } from './alerts'
@@ -16,7 +15,7 @@ switch(sessionStorage.getItem("operation")){
     break;
   case "created":
     let message = "Ссылка создана: " + 
-    Configuration.BackEndpoint.concat(Routes.shortLinks, 
+    import.meta.env.VITE_BackEndpoint.concat(Routes.shortLinks, 
     (<Link>JSON.parse(sessionStorage.getItem("object"))).shortUrl)
     goodAlert(message, 4000)
       sessionStorage.removeItem("object")
@@ -29,25 +28,26 @@ try {
   RenderTable(links)
 }
 catch (_) {
+  console.log(import.meta.env)
   dangerAlert("Невозможно получить данные с сервера, проверьте подключение")
 }
 async function getLinks(): Promise<Link[]> {
-  let counter = 0
-  let offset = 30
+  let offset = 0
+  let limit = 30
   let links: Link[] = []
   let tlinks: Link[] = []
   do {
 
-    tlinks = await requestLinks(counter, offset)
+    tlinks = await requestLinks(offset, limit)
     links.push(...tlinks)
-    counter += offset
+    offset += limit
 
-  } while (tlinks.length >= offset)
+  } while (tlinks.length >= limit)
   return links
 }
 
 async function requestLinks(offset: number, count: number): Promise<Link[]> {
-  let response = await fetch(Configuration.BackEndpoint + Routes.getLinks + new URLSearchParams({
+  let response = await fetch(import.meta.env.VITE_BackEndpoint + Routes.getLinks + new URLSearchParams({
     offset: String(offset),
     count: String(count)
   }), {
@@ -58,6 +58,6 @@ async function requestLinks(offset: number, count: number): Promise<Link[]> {
 
 function RenderTable(links: Link[]) {
   links.forEach(element => {
-    new TableElement(element.id, element.realUrl, Configuration.BackEndpoint.concat(Routes.shortLinks, element.shortUrl), element.creationDate, element.countOfTransitions, table)
+    new TableElement(element.id, element.realUrl, import.meta.env.VITE_BackEndpoint.concat(Routes.shortLinks, element.shortUrl), element.creationDate, element.countOfTransitions, table)
   })
 }
