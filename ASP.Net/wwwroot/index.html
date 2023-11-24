@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UrlShorter - ссылки</title>
+  <script async type="module" crossorigin src="/assets/index-ecl-3kWM.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/alerts-YNeu-kSX.js">
+  <link rel="stylesheet" crossorigin href="/assets/alerts-1veOIGhi.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-puOnpRlU.css">
+</head>
+
+<body>
+    <div>
+        <header class="m-1">
+            <h1 class="text-center">UrlShorter - сделай ссылки поменьше</h1>
+            <a id="submitbutton" class="btn btn-primary m-xl-4" href="create.html">Создать новую ссылку</a>
+        </header>
+        <div class="alert alert-success fade show" role="alert" id="alertgood">
+        </div>
+        <div class="container-fluid">
+            <table class="table" id="table_inner">
+                <thead>
+                    <th scope="row">
+                        Ссылка
+                    </th>
+                    <th scope="row">
+                        Сокращённая ссылка
+                    </th>
+                    <th scope="row">
+                        Дата создания
+                    </th>
+                    <th scope="row">
+                        Количество переходов
+                    </th>
+                </thead>
+            </table>
+        </div>
+        <div class="alert alert-danger" role="alert" id="alert_fetchfailed">
+        </div>
+    </div>
+</body>
+
+</html>

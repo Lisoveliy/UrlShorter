@@ -8,24 +8,30 @@ export class TableElement implements IElement{
     intEl = mainel.insertCell(),
     timeofcreationEl = mainel.insertCell(),
     counterEl = mainel.insertCell()
-    //buttonEl = mainel.insertCell()
+    
     extEl.append(this.generateLink(extUrl, extUrl))
     intEl.append(this.generateLink(intUrl, intUrl))
     timeofcreationEl.append(this.generateElement('p', timeofcreation))
-    let button = document.createElement('a')
-    button.className = "btn btn-primary"
-    button.href = "edit.html?id=" + String(id)
-    button.role = "button"
-    button.textContent = "Изменить"
-    let counterdiv = this.generateElement('div', '<p>' + String(counter) +'</p>')
-    counterdiv.className = "tableflex"
-    counterdiv.append(button)
-    counterEl.append(counterdiv)
-
+    let button = this.getButton(id)
+    counterEl.append(this.getCounter(counter, button))
     this.mainElement = mainel
   }
   mainElement: HTMLElement
 
+  private getCounter(counter: number, button: HTMLAnchorElement){
+    let counterdiv = this.generateElement('div', '<p>' + String(counter) +'</p>')
+    counterdiv.className = "table__flex-counter"
+    counterdiv.append(button)
+    return counterdiv;
+  }
+  private getButton(id: number){
+    let button = document.createElement('a')
+    button.className = "btn btn-primary table__button"
+    button.href = "edit.html?id=" + String(id)
+    button.role = "button"
+    button.textContent = "Изменить"
+    return button;
+  }
   private generateElement(tag: string, content?: string): HTMLElement {
     let mainel = document.createElement(tag)
     mainel.innerHTML = content ?? ""

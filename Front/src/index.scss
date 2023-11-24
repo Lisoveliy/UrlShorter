@@ -1,0 +1,14 @@
+
+.head-text{
+    margin: 0;
+    text-align: center;
+}
+.head-discription{
+    text-align: center;
+}
+@media screen and (max-width: 600px) {
+    #create-button {
+        width: 100%;
+        max-width: 100%;
+    }
+}

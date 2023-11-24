@@ -1,6 +1,5 @@
 import '../style.scss'
 import '../edit.scss'
-import { Configuration } from '../configuration'
 import { Routes } from './routes'
 import { Link } from './DTO/Link'
 import { dangerAlert } from './alerts'
@@ -46,11 +45,11 @@ document.getElementById('modifyform').addEventListener('submit', (e) => {
 
 function AddDataIntoForm(link: Link) {
     shorturl.value = link.realUrl
-    shortedurl.value = Configuration.BackEndpoint.concat("/", link.shortUrl)
+    shortedurl.value = import.meta.env.VITE_BackEndpoint.concat("/", link.shortUrl)
     counter.textContent = String(link.countOfTransitions)
 }
 
 async function getLinkData(id: number): Promise<Link> {
-    var response = await fetch(Configuration.BackEndpoint + Routes.getLink + id)
+    var response = await fetch(import.meta.env.VITE_BackEndpoint + Routes.getLink + id)
     return <Link>await response.json()
 }
