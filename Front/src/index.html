@@ -7,11 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
 </head>
-
 <body>
-    <div class="container py-4 px-3 mx-auto">
-        <h1>Hello world</h1>
+    <div id="maingrid">
+        <div id="header1" class="text-center m-5"><h1>UrlShorter - сделай ссылки поменьше</h1></div>
+        <div id="table" class="container border">
+            <table class="table" id="table_inner">
+                <thead>
+               <th scope="row">
+                    Ссылка
+                </th>
+                <th scope="row">
+                    Сокращённая ссылка
+                </th>
+                <th scope="row">
+                   Дата создания 
+                </th>
+                <th scope="row">
+                    Количество переходов
+                </th>
+            </thead>
+            </table>
+        </div>
     </div>
-    <script type="module" src="main.ts"></script>
+    <script type="module" src="main.ts" async></script>
 </body>
 </html>
