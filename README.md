@@ -22,6 +22,10 @@
     VITE_BackEndpoint = "http://localhost:5000" //Заметить на доменное имя
 ### Запуск развёртывания:
 После этого можно запустить bash скрипт находящийся в корне каталога под названием <code>deploy.sh</code> (Для linux) или <code>deploy.cmd</code> (Для windows) И он скомпилирует всё необходимое.
+
+    (Запуск для linux)
+    chmod 755 deploy.sh 
+    ./deploy.sh
 ## Запуск
 После развёртывания готовый к запуску проект можно найти по пути <code>/ASP.Net/bin/Release/net8.0/publish/</code> и запустить командой
 
