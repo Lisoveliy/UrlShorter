@@ -4,6 +4,7 @@ import { Link } from './Models/Link'
 import { dangerAlert } from './alerts'
 import { ModifyData } from './Client/ModifyData'
 import { getLinkData } from './Client/GetData'
+import { Routes } from './routes'
 
 /*
     Main module for edit.html
@@ -32,7 +33,7 @@ else {
 }
 function AddDataIntoForm(link: Link) {
     shorturl.value = link.realUrl
-    shortedurl.value = import.meta.env.VITE_BackEndpoint.concat("/", link.shortUrl)
+    shortedurl.value = import.meta.env.VITE_BackEndpoint.concat(Routes.shortLinks, link.shortUrl)
     counter.textContent = String(link.countOfTransitions)
 }
 
