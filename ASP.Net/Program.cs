@@ -46,7 +46,7 @@ namespace UrlShorter
                 
                 });
             }
-            else app.UseFileServer();
+            app.UseFileServer();
             app.MapControllers();
             app.Run();
         }

@@ -16,6 +16,7 @@ namespace UrlShorter.Services.Link
             this.context = context;
             this.generatorService = linkGenerator;
         }
+        //TODO: Lock mechanism for async conflicts
         public async Task<LinkModels.Link?> CreateLink(string realUrl)
         {
             var existingRoute = await context.Links.FirstOrDefaultAsync(x => realUrl == x.DestinationUrl);
