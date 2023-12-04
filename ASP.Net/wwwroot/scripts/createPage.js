@@ -5,7 +5,7 @@ import { createLink } from './Client/addData.js';
 //Input Field
 let shorturl = document.getElementById('shortUrlInput');
 //Listen events of submit
-document.getElementById('createform').addEventListener('submit', async (e) => {
+document.getElementById('create-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     await createLink(shorturl.value);
 });

@@ -34,6 +34,7 @@ export class TableRenderer {
         let mainel = document.createElement('a');
         mainel.textContent = content ?? "";
         mainel.href = href;
+        mainel.target = "_blank";
         return mainel;
     }
 }
