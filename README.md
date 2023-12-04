@@ -17,6 +17,6 @@
         "minLength": 8 //Количество символов для короткой ссылки
     }
 ### Запуск
-Запуск производится командой <code>dotnet run</code>
+Запуск производится командой <code>dotnet run</code> в каталоге <code>ASP.Net</code>
 ## Тестирование
 Откройте проект ASP.NET Test в Visual Studio и запустите тесты через Ctrl + R && Ctrl + A
